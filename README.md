@@ -1,99 +1,215 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Cron Job Service
+A scalable and efficient Cron Job Service built with NestJS and MongoDB. This service allows users to create, update, delete, and retrieve cron jobs. It also supports webhook integration, rate limiting, and history logging for cron job executions.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Features
+CRUD Operations: Create, read, update, and delete cron jobs.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Cron Job Scheduling: Schedule cron jobs to trigger at specific intervals (e.g., daily, weekly).
 
-## Description
+Webhook Integration: Receive and store data from external services via webhooks.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+History Logging: Log the execution history of cron jobs, including responses and timestamps.
 
-## Project setup
+Rate Limiting: Prevent abuse with API throttling and rate limiting.
 
-```bash
-$ npm install
-```
+Scalable: Designed to handle a large number of cron jobs efficiently.
 
-## Compile and run the project
+Technology Stack
+Backend Framework: NestJS
 
-```bash
-# development
-$ npm run start
+Database: MongoDB
 
-# watch mode
-$ npm run start:dev
+Libraries:
 
-# production mode
-$ npm run start:prod
-```
+@nestjs/schedule for cron job scheduling.
 
-## Run tests
+mongoose for MongoDB object modeling.
 
-```bash
-# unit tests
-$ npm run test
+@nestjs/throttler for rate limiting.
 
-# e2e tests
-$ npm run test:e2e
+axios for making HTTP requests.
 
-# test coverage
-$ npm run test:cov
-```
+class-validator and class-transformer for input validation.
 
-## Deployment
+winston for logging.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Prerequisites
+Before running the project, ensure you have the following installed:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Node.js (v16 or higher)
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+npm or yarn
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+MongoDB (local or cloud instance)
 
-## Resources
+Setup Instructions
+1. Clone the Repository
+bash
+Copy
+git clone https://github.com/your-username/cron-job-service.git
+cd cron-job-service
+2. Install Dependencies
+bash
+Copy
+npm install
+3. Set Up Environment Variables
+Create a .env file in the root directory and add the following variables:
 
-Check out a few resources that may come in handy when working with NestJS:
+env
+Copy
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/cron-job-service?retryWrites=true&w=majority
+Replace <username> and <password> with your MongoDB credentials.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+4. Run the Application
+bash
+Copy
+npm run start
+The application will start on http://localhost:3000.
 
-## Support
+API Documentation
+Cron Jobs Endpoints
+Create a Cron Job
+Endpoint: POST /cron-jobs
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Request Body:
 
-## Stay in touch
+json
+Copy
+{
+  "name": "Daily Backup",
+  "link": "https://example.com/api/backup",
+  "apiKey": "secret-key",
+  "schedule": "0 0 * * *", // Daily at midnight
+  "startDate": "2025-10-02T00:00:00.000Z"
+}
+Get All Cron Jobs
+Endpoint: GET /cron-jobs
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Update a Cron Job
+Endpoint: PUT /cron-jobs/:id
 
-## License
+Request Body:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+json
+Copy
+{
+  "name": "Updated Cron Job",
+  "schedule": "0 12 * * *" // Daily at noon
+}
+Delete a Cron Job
+Endpoint: DELETE /cron-jobs/:id
+
+Webhooks Endpoints
+Receive Webhook Data
+Endpoint: POST /webhooks
+
+Request Body:
+
+json
+Copy
+{
+  "data": { "key": "value" },
+  "cronJobId": "64f8f8f8f8f8f8f8f8f8f8f8"
+}
+Get All Webhooks
+Endpoint: GET /webhooks
+
+Example Requests
+Create a Cron Job
+bash
+Copy
+curl -X POST http://localhost:3000/cron-jobs \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Daily Backup",
+  "link": "https://example.com/api/backup",
+  "apiKey": "secret-key",
+  "schedule": "0 0 * * *",
+  "startDate": "2025-10-02T00:00:00.000Z"
+}'
+Get All Cron Jobs
+bash
+Copy
+curl -X GET http://localhost:3000/cron-jobs
+Trigger a Webhook
+bash
+Copy
+curl -X POST http://localhost:3000/webhooks \
+-H "Content-Type: application/json" \
+-d '{
+  "data": { "status": "success" },
+  "cronJobId": "64f8f8f8f8f8f8f8f8f8f8f8"
+}'
+Database Schema
+Cron Jobs Collection
+json
+Copy
+{
+  "name": "string",
+  "link": "string",
+  "apiKey": "string",
+  "schedule": "string",
+  "startDate": "date",
+  "createdAt": "date",
+  "updatedAt": "date"
+}
+Webhooks Collection
+json
+Copy
+{
+  "data": "object",
+  "cronJobId": "ObjectId",
+  "createdAt": "date"
+}
+History Collection
+json
+Copy
+{
+  "cronJobId": "ObjectId",
+  "response": "object",
+  "status": "string",
+  "createdAt": "date"
+}
+Testing
+To run unit tests, use the following command:
+
+bash
+Copy
+npm run test
+Logging
+The application uses winston for logging. Logs are stored in the logs/ directory.
+
+Deployment
+To deploy the application, follow these steps:
+
+Build the project:
+
+bash
+Copy
+npm run build
+Start the application in production mode:
+
+bash
+Copy
+npm run start:prod
+Use a process manager like PM2 to manage the application in production:
+
+bash
+Copy
+pm2 start dist/main.js --name cron-job-service
+Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/your-feature).
+
+Commit your changes (git commit -m 'Add some feature').
+
+Push to the branch (git push origin feature/your-feature).
+
+Open a pull request.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
