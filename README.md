@@ -86,25 +86,29 @@ The application will start on http://localhost:3000.
     "startDate": "2025-10-02T00:00:00.000Z"
   }
   ```
-### Get All Crom Jobs
+### **Get All Crom Jobs**
 <ul><li>Endpoint: GET /cron-jobs</li></ul>
 
-### Update a Cron Job
+### **Update a Cron Job**
 
 <ul><li>Endpoint: PUT /cron-jobs/:id</li>
 <li>Request Body:</li>
+  
   ```json
   {
   "name": "Updated Cron Job",
   "schedule": "0 12 * * *" // Daily at noon
-}
-  ```
+  }
+```
+  
 </ul>
-### Delete a Cron Job
+
+### **Delete a Cron Job** 
 <ul><li>Endpoint: DELETE /cron-jobs/:id</li></ul>
 
-# Example Requests
-## Create a Cron Job
+## Example Requests
+
+### Create a Cron Job
 ```bash
 curl -X POST http://localhost:3000/cron-jobs \
 -H "Content-Type: application/json" \
@@ -116,11 +120,11 @@ curl -X POST http://localhost:3000/cron-jobs \
   "startDate": "2025-10-02T00:00:00.000Z"
 }'
 ```
-## Get All Cron Jobs
+### Get All Cron Jobs
 ```bash
 curl -X GET http://localhost:3000/cron-jobs
 ```
-## Trigger a Webhoook
+### Trigger a Webhoook
 ```bash
 curl -X POST http://localhost:3000/webhooks \
 -H "Content-Type: application/json" \
@@ -130,9 +134,9 @@ curl -X POST http://localhost:3000/webhooks \
 }'
 ```
 
-# Database Schema
+## Database Schema
 
-## Cron Jobs Collection
+### Cron Jobs Collection
 ```json
 {
   "name": "string",
@@ -144,7 +148,7 @@ curl -X POST http://localhost:3000/webhooks \
   "updatedAt": "date"
 }
 ```
-## Webhooks Collection
+### Webhooks Collection
 ```json
 {
   "data": "object",
@@ -152,7 +156,7 @@ curl -X POST http://localhost:3000/webhooks \
   "createdAt": "date"
 }
 ```
-## History Collection
+### History Collection
 ```json
 {
   "cronJobId": "ObjectId",
