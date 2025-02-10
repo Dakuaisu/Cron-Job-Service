@@ -70,24 +70,22 @@ npm run start
 ```
 The application will start on http://localhost:3000.
 
- # API Documentation 
+# API Documentation
 
-## Cron Jobs ENdpoints
+## Cron Jobs Endpoints
 
-### Create a Cron Job
-<ul><li>
-### Endpoint: POST /cron-jobs</li><li>
-### Request Body:
-</li></ul>
-```json
-{
-  "name": "Daily Backup",
-  "link": "https://example.com/api/backup",
-  "apiKey": "secret-key",
-  "schedule": "0 0 * * *", // Daily at midnight
-  "startDate": "2025-10-02T00:00:00.000Z"
-}
-```
+### **Create a Cron Job**
+- **Endpoint**: `POST /cron-jobs`
+- **Request Body**:
+  ```json
+  {
+    "name": "Daily Backup",
+    "link": "https://example.com/api/backup",
+    "apiKey": "secret-key",
+    "schedule": "0 0 * * *", // Daily at midnight
+    "startDate": "2025-10-02T00:00:00.000Z"
+  }
+  ```
 ### Get All Crom Jobs
 <ul><li>Endpoint: GET /cron-jobs</li></ul>
 
